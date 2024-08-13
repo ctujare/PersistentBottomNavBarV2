@@ -31,7 +31,7 @@ part "styles/style_13_bottom_navbar.dart";
 part "styles/style_14_bottom_navbar.dart";
 part "styles/style_15_bottom_navbar.dart";
 part "styles/style_16_bottom_navbar.dart";
-part "styles/style_17_bottom_navbar.dart";
+part "styles/new_style_17_bottom_navbar.dart";
 part "styles/style_1_bottom_navbar.dart";
 part "styles/style_2_bottom_navbar.dart";
 part "styles/style_3_bottom_navbar.dart";

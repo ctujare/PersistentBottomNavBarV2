@@ -1,16 +1,16 @@
 part of "../persistent_bottom_nav_bar_v2.dart";
 
-class Style17BottomNavBar extends StatelessWidget {
-  Style17BottomNavBar({
+class NewStyle17BottomNavBar extends StatelessWidget {
+  NewStyle17BottomNavBar({
     required this.navBarConfig,
     this.itemAnimationProperties = const ItemAnimation(),
     this.navBarDecoration = const NavBarDecoration(),
     this.itemPadding = const EdgeInsets.all(5),
     super.key,
   }) : assert(
-  navBarConfig.items.length.isOdd,
-  "The number of items must be odd for this style",
-  );
+          navBarConfig.items.length.isOdd,
+          "The number of items must be odd for this style",
+        );
 
   final NavBarConfig navBarConfig;
   final NavBarDecoration navBarDecoration;
@@ -21,16 +21,16 @@ class Style17BottomNavBar extends StatelessWidget {
 
   Widget _buildItem(BuildContext context, ItemConfig item, bool isSelected) =>
       AnimatedContainer(
-          width: isSelected ? 120 : 50,
-          duration: itemAnimationProperties.duration,
-          curve: itemAnimationProperties.curve,
-          padding: itemPadding,
-          decoration: BoxDecoration(
-            color: isSelected
-                ? item.activeBackgroundColor
-                : item.inactiveBackgroundColor,
-            borderRadius: const BorderRadius.all(Radius.circular(10)),
-          ),
+        width: isSelected ? 120 : 50,
+        duration: itemAnimationProperties.duration,
+        curve: itemAnimationProperties.curve,
+        padding: itemPadding,
+        decoration: BoxDecoration(
+          color: isSelected
+              ? item.activeBackgroundColor
+              : item.inactiveBackgroundColor,
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -62,75 +62,75 @@ class Style17BottomNavBar extends StatelessWidget {
           ],
         ),
       );
-      // Row(
-      //   mainAxisAlignment: MainAxisAlignment.center,
-      //   children: <Widget>[
-      //     Expanded(
-      //       child: IconTheme(
-      //         data: IconThemeData(
-      //           size: item.iconSize,
-      //           color: isSelected
-      //               ? item.activeForegroundColor
-      //               : item.inactiveForegroundColor,
-      //         ),
-      //         child: isSelected ? item.icon : item.inactiveIcon,
-      //       ),
-      //     ),
-      //     if (item.title != null)
-      //       FittedBox(
-      //         child: Text(
-      //           item.title!,
-      //           style: item.textStyle.apply(
-      //             color: isSelected
-      //                 ? item.activeForegroundColor
-      //                 : item.inactiveForegroundColor,
-      //           ),
-      //         ),
-      //       ),
-      //   ],
-      // );
+  // Row(
+  //   mainAxisAlignment: MainAxisAlignment.center,
+  //   children: <Widget>[
+  //     Expanded(
+  //       child: IconTheme(
+  //         data: IconThemeData(
+  //           size: item.iconSize,
+  //           color: isSelected
+  //               ? item.activeForegroundColor
+  //               : item.inactiveForegroundColor,
+  //         ),
+  //         child: isSelected ? item.icon : item.inactiveIcon,
+  //       ),
+  //     ),
+  //     if (item.title != null)
+  //       FittedBox(
+  //         child: Text(
+  //           item.title!,
+  //           style: item.textStyle.apply(
+  //             color: isSelected
+  //                 ? item.activeForegroundColor
+  //                 : item.inactiveForegroundColor,
+  //           ),
+  //         ),
+  //       ),
+  //   ],
+  // );
 
   Widget _buildMiddleItem(ItemConfig item, bool isSelected) => Column(
-    mainAxisSize: MainAxisSize.min,
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-      Container(
-        width: 150,
-        height: navBarConfig.navBarHeight,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: item.activeForegroundColor,
-          boxShadow: navBarDecoration.boxShadow,
-        ),
-        child: Center(
-          child: IconTheme(
-            data: IconThemeData(
-              size: item.iconSize,
-              color: item.inactiveForegroundColor,
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            width: 150,
+            height: navBarConfig.navBarHeight,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: item.activeForegroundColor,
+              boxShadow: navBarDecoration.boxShadow,
             ),
-            child: isSelected ? item.icon : item.inactiveIcon,
-          ),
-        ),
-      ),
-      if (item.title != null)
-        Padding(
-          padding: const EdgeInsets.only(top: 5),
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: FittedBox(
-              child: Text(
-                item.title!,
-                style: item.textStyle.apply(
-                  color: isSelected
-                      ? item.activeForegroundColor
-                      : item.inactiveForegroundColor,
+            child: Center(
+              child: IconTheme(
+                data: IconThemeData(
+                  size: item.iconSize,
+                  color: item.inactiveForegroundColor,
                 ),
+                child: isSelected ? item.icon : item.inactiveIcon,
               ),
             ),
           ),
-        ),
-    ],
-  );
+          if (item.title != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 5),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: FittedBox(
+                  child: Text(
+                    item.title!,
+                    style: item.textStyle.apply(
+                      color: isSelected
+                          ? item.activeForegroundColor
+                          : item.inactiveForegroundColor,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+        ],
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -159,10 +159,10 @@ class Style17BottomNavBar extends StatelessWidget {
                       child: index == midIndex
                           ? Container()
                           : _buildItem(
-                        context,
-                        item,
-                        navBarConfig.selectedIndex == index,
-                      ),
+                              context,
+                              item,
+                              navBarConfig.selectedIndex == index,
+                            ),
                     ),
                   );
                 }).toList(),
